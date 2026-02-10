@@ -1,0 +1,270 @@
+<h1 id="spôsob-výpočtu">Spôsob výpočtu</h1>
+<p>Tento dokument vysvetľuje podrobný spôsob výpočtu všetkých
+výsledkov.</p>
+<h2 id="výpočet-nákladov-na-zamestnanca">1. Výpočet nákladov na
+zamestnanca</h2>
+<h3 id="odvody-zamestnanca-14.4-celkom">1.1 Odvody zamestnanca (14.4%
+celkom)</h3>
+<p>Zamestnanec platí zo svojej hrubej mzdy:</p>
+<p><strong>Sociálne poistenie: 9.4%</strong> (strop €16 764/mesiac)</p>
+<ul>
+<li>Dôchodkové poistenie: 4%</li>
+<li>Invalidné poistenie: 3%</li>
+<li>Nemocenské poistenie: 1,4%</li>
+<li>Poistenie v nezamestnanosti: 1%</li>
+<li>Rezervný fond: 0% (neplatí zamestnanec, len zamestnávateľ)</li>
+</ul>
+<p><strong>Zdravotné poistenie: 5%</strong> (bez stropu)</p>
+<p><strong>Vzorec:</strong></p>
+<pre class="text"><code>Ak hrubá mzda ≤ €16 764:
+    Sociálne poistenie = hrubá mzda × 9.4%
+    Zdravotné poistenie = hrubá mzda × 5%
+
+Ak hrubá mzda &gt; €16 764:
+    Sociálne poistenie = €16 764 × 9.4% = €1 575,82
+    Zdravotné poistenie = hrubá mzda × 5%
+
+Celkové odvody zamestnanca = sociálne + zdravotné</code></pre>
+<h3 id="daňový-základ">1.2 Daňový základ</h3>
+<pre class="text"><code>Daňový základ = hrubá mzda - odvody zamestnanca</code></pre>
+<h3 id="nezdaniteľná-časť-základu-dane">1.3 Nezdaniteľná časť základu
+dane</h3>
+<p>Ak je daňový základ ≤ €2 173,59, zamestnanec má nárok na nezdaniteľnú
+časť €497,23/mesiac.</p>
+<pre class="text"><code>Ak daňový základ ≤ €2 173,59:
+    Nezdaniteľná časť = €497,23
+Inak:
+    Nezdaniteľná časť = €0</code></pre>
+<h3 id="progresívna-daň-z-príjmu">1.4 Progresívna daň z príjmu</h3>
+<p>Daň sa počíta na ročnom základe, potom sa vydelí 12 pre mesačnú
+daň.</p>
+<p><strong>Zdaniteľný príjem za rok:</strong></p>
+<pre class="text"><code>Mesačný zdaniteľný príjem = daňový základ - nezdaniteľná časť
+Ročný zdaniteľný príjem = mesačný × 12</code></pre>
+<p><strong>Daňové pásma (2026):</strong> - <strong>19%</strong> do €43
+983,32 ročne - <strong>25%</strong> od €43 983,32 do €60 349,21 ročne -
+<strong>30%</strong> od €60 349,21 do €75 010,32 ročne -
+<strong>35%</strong> nad €75 010,32 ročne</p>
+<p><strong>Výpočet dane:</strong></p>
+<pre><code>Daň v pásme 1 = min(ročný príjem, €43 983,32) × 19%
+Daň v pásme 2 = min(max(ročný príjem - €43 983,32, 0), €16 365,89) × 25%
+Daň v pásme 3 = min(max(ročný príjem - €60 349,21, 0), €14 661,11) × 30%
+Daň v pásme 4 = max(ročný príjem - €75 010,32, 0) × 35%
+
+Celková ročná daň = daň 1 + daň 2 + daň 3 + daň 4
+Mesačná daň = ročná daň / 12</code></pre>
+<h3 id="čistá-mzda">1.5 Čistá mzda</h3>
+<pre><code>Čistá mzda = daňový základ - mesačná daň</code></pre>
+<h3 id="odvody-zamestnávateľa-362-celkom">1.6 Odvody zamestnávateľa
+(36,2% celkom)</h3>
+<p>Zamestnávateľ platí navyše k hrubej mzde:</p>
+<p><strong>Sociálne poistenie: 25,2%</strong> (strop €16 764/mesiac) -
+Dôchodkové poistenie: 14% - Invalidné poistenie: 3% - Nemocenské
+poistenie: 1,4% - Poistenie v nezamestnanosti: 1% - Garančné poistenie:
+0,25% - Úrazové poistenie: 0,8% - Rezervný fond solidarity: 4,75%</p>
+<p><strong>Zdravotné poistenie: 11%</strong> (bez stropu)</p>
+<p><strong>Vzorec:</strong></p>
+<pre><code>Ak hrubá mzda ≤ €16 764:
+    Sociálne poistenie = hrubá mzda × 25,2%
+    Zdravotné poistenie = hrubá mzda × 11%
+
+Ak hrubá mzda &gt; €16 764:
+    Sociálne poistenie = €16 764 × 25,2% = €4 224,53
+    Zdravotné poistenie = hrubá mzda × 11%
+
+Celkové odvody zamestnávateľa = sociálne + zdravotné</code></pre>
+<h3 id="celkové-náklady-na-zamestnanca">1.7 Celkové náklady na
+zamestnanca</h3>
+<pre><code>Celkové náklady = hrubá mzda + odvody zamestnávateľa</code></pre>
+<h2 id="výpočet-zisku-a-dane-z-príjmu-právnickej-osoby">2. Výpočet zisku
+a dane z príjmu právnickej osoby</h2>
+<h3 id="výpočet-zisku">2.1 Výpočet zisku</h3>
+<pre class="text"><code>Celkové náklady na mzdy = súčet (hrubá mzda + odvody zamestnávateľa) pre všetkých zamestnancov
+Zisk = mesačné príjmy - mesačné výdavky - celkové náklady na mzdy</code></pre>
+<h3 id="určenie-daňovej-sadzby">2.2 Určenie daňovej sadzby</h3>
+<p>Sadzba dane z príjmu právnickej osoby závisí od <strong>ročného
+obratu</strong> (nie zisku):</p>
+<pre class="text"><code>Ročný obrat = mesačný príjem × 12
+
+Ak ročný obrat ≤ €100 000:
+    Sadzba = 10%
+Ak ročný obrat &gt; €100 000 a ≤ €5 000 000:
+    Sadzba = 21%
+Ak ročný obrat &gt; €5 000 000:
+    Sadzba = 24%</code></pre>
+<h3 id="výpočet-dane">2.3 Výpočet dane</h3>
+<pre><code>Ak zisk &gt; 0:
+    Daň z príjmu PO = zisk × sadzba
+Inak:
+    Daň z príjmu PO = 0
+
+Zisk po zdanení = zisk - daň z príjmu PO</code></pre>
+<h2 id="výpočet-dividend">3. Výpočet dividend</h2>
+<h3 id="výpočet-čistéch-dividend-pre-majiteľa">3.1 Výpočet čistéch
+dividend pre majiteľa</h3>
+<pre class="text"><code>Disponibilný zisk = zisk po zdanení dane z príjmu PO
+Daň z dividend = disponibilný zisk × 7%
+Zdravotné poistenie = €0 (zisky po roku 2017 sú oslobodené)
+Čistý dividendy = disponibilný zisk - daň z dividend - zdravotné poistenie</code></pre>
+<p><strong>Poznámka:</strong> Pre zisky vytvorené po roku 2017 sa
+zdravotné poistenie neplatí. Pre staršie zisky by sa uplatnilo dodatočné
+zdravotné poistenie.</p>
+<h2 id="celkový-čistý-ročný-príjem-a-reálne-daňové-zaťaženie">4. Celkový
+čistý ročný príjem a reálne daňové zaťaženie</h2>
+<p>Aplikácia zobrazuje súhrnný výsledok, ktorý kombinuje príjmy všetkých
+zamestnancov a majiteľa.</p>
+<h3 id="celkový-čistý-ročný-príjem">4.1 Celkový čistý ročný príjem</h3>
+<pre class="text"><code>Celkový čistý ročný príjem = ročné čisté mzdy (všetci zamestnanci) + ročné čisté dividendy (majiteľ)</code></pre>
+<p>Toto je skutočná suma peňazí, ktorá sa ročne vyplatí z firmy vo forme
+miezd a dividend.</p>
+<h3 id="zisk-firmy-bez-miezd">4.2 Zisk firmy bez miezd</h3>
+<pre class="text"><code>Zisk firmy bez miezd = (mesačný príjem - mesačné výdavky) × 12</code></pre>
+<p>Toto je celkový príjem firmy pred zaplatením miezd a všetkých daní a
+odvodov.</p>
+<h3 id="reálne-celkové-daňové-a-odvodové-zaťaženie">4.3 Reálne celkové
+daňové a odvodové zaťaženie</h3>
+<p>Tento ukazovateľ vyjadruje, aký podiel z celkového zisku firmy ide na
+dane a odvody (namiesto výplat zamestnancom a majiteľovi):</p>
+<pre class="text"><code>Reálne zaťaženie (%) = (Zisk firmy bez miezd - Celkový čistý ročný príjem) / Zisk firmy bez miezd × 100%</code></pre>
+<p><strong>Čo zahŕňa toto zaťaženie:</strong> - Odvody zamestnanca
+(14,4%) - Odvody zamestnávateľa (36,2%) - Progresívna daň z príjmu
+fyzických osôb (19-35%) - Daň z príjmu právnickej osoby (10/21/24%) -
+Daň z dividend (7%)</p>
+<p><strong>Príklad:</strong> Ak je zisk firmy bez miezd €100 000 ročne a
+celkový čistý príjem je €55 000, reálne daňové zaťaženie je:</p>
+<pre><code>(€100 000 - €55 000) / €100 000 × 100% = 45%</code></pre>
+<p>To znamená, že 45% z celkového zisku ide na dane a odvody, a 55% sa
+skutočne vyplatí zamestnancom a majiteľovi.</p>
+<h2 id="príklad-výpočtu">5. Príklad výpočtu</h2>
+<h3 id="vstupné-údaje">Vstupné údaje:</h3>
+<ul>
+<li>Mesačný príjem: <strong>€10 000</strong></li>
+<li>Mesačné výdavky: <strong>€3 000</strong></li>
+<li>Počet zamestnancov: <strong>1</strong></li>
+<li>Hrubá mzda: <strong>€2 000</strong></li>
+</ul>
+<h3 id="krok-1-výpočet-nákladov-na-zamestnanca-podľa-sekcie-1">Krok 1:
+Výpočet nákladov na zamestnanca (podľa sekcie 1)</h3>
+<p><strong>Odvody zamestnanca:</strong></p>
+<ul>
+<li>Sociálne poistenie: €2 000 × 9.4% = <strong>€188</strong></li>
+<li>Zdravotné poistenie: €2 000 × 5% = <strong>€100</strong></li>
+<li>Celkom: <strong>€288</strong></li>
+</ul>
+<p><strong>Daňový základ:</strong></p>
+<ul>
+<li>Daňový základ = €2 000 - €288 = <strong>€1 712</strong></li>
+</ul>
+<p><strong>Nezdaniteľná časť:</strong></p>
+<ul>
+<li>€1 712 ≤ €2 173,59, preto nezdaniteľná časť =
+<strong>€497,23</strong></li>
+</ul>
+<p><strong>Daň z príjmu:</strong></p>
+<ul>
+<li>Mesačný zdaniteľný príjem = €1 712 - €497,23 = <strong>€1
+214,77</strong></li>
+<li>Ročný zdaniteľný príjem = €1 214,77 × 12 = <strong>€14
+577,24</strong></li>
+<li>Daň (celá v pásme 19%): €14 577,24 × 19% = <strong>€2
+769,68</strong> ročne</li>
+<li>Mesačná daň: €2 769,68 / 12 = <strong>€230,81</strong></li>
+</ul>
+<p><strong>Čistá mzda:</strong></p>
+<ul>
+<li>Čistá mzda = €1 712 - €230,81 = <strong>€1 481,19</strong></li>
+</ul>
+<p><strong>Odvody zamestnávateľa:</strong></p>
+<ul>
+<li>Sociálne poistenie: €2 000 × 25,2% = <strong>€504</strong></li>
+<li>Zdravotné poistenie: €2 000 × 11% = <strong>€220</strong></li>
+<li>Celkom: <strong>€724</strong></li>
+</ul>
+<p><strong>Celkové náklady:</strong></p>
+<ul>
+<li>Celkové náklady = €2 000 + €724 = <strong>€2 724</strong></li>
+</ul>
+<h3 id="krok-2-výpočet-zisku-a-dane-z-príjmu-po-podľa-sekcie-2">Krok 2:
+Výpočet zisku a dane z príjmu PO (podľa sekcie 2)</h3>
+<p><strong>Zisk:</strong></p>
+<ul>
+<li>Zisk = €10 000 - €3 000 - €2 724 = <strong>€4 276</strong></li>
+</ul>
+<p><strong>Daňová sadzba:</strong></p>
+<ul>
+<li>Ročný obrat = €10 000 × 12 = <strong>€120 000</strong></li>
+<li>€100 000 &lt; €120 000 ≤ €5 000 000, preto sadzba =
+<strong>21%</strong></li>
+</ul>
+<p><strong>Daň z príjmu PO:</strong></p>
+<ul>
+<li>Daň = €4 276 × 21% = <strong>€897,96</strong></li>
+<li>Zisk po zdanení = €4 276 - €897,96 = <strong>€3 378,04</strong></li>
+</ul>
+<h3 id="krok-3-výpočet-dividend-podľa-sekcie-3">Krok 3: Výpočet dividend
+(podľa sekcie 3)</h3>
+<p><strong>Čistý dividend:</strong></p>
+<ul>
+<li>Disponibilný zisk = <strong>€3 378,04</strong></li>
+<li>Daň z dividend: €3 378,04 × 7% = <strong>€236,46</strong></li>
+<li>Zdravotné poistenie = <strong>€0</strong></li>
+<li>Čistý dividend = €3 378,04 - €236,46 - €0 = <strong>€3
+141,58</strong></li>
+</ul>
+<h3 id="zhrnutie-výsledkov">Zhrnutie výsledkov:</h3>
+<div class="line-block">Položka | Suma |</div>
+<p>||| | <strong>Zamestnanec</strong> | | | Hrubá mzda | €2 000,00 | |
+Odvody zamestnanca | -€288,00 | | Daň z príjmu | -€230,81 | |
+<strong>Čistá mzda</strong> | <strong>€1 481,19</strong> | | | | |
+<strong>Firma</strong> | | | Príjmy | €10 000,00 | | Výdavky | -€3
+000,00 | | Náklady na zamestnancov | -€2 724,00 | | Zisk | €4 276,00 | |
+Daň z príjmu PO (21%) | -€897,96 | | <strong>Zisk po zdanení</strong> |
+<strong>€3 378,04</strong> | | | | | <strong>Majiteľ</strong> | | |
+Disponibilný zisk | €3 378,04 | | Daň z dividend (7%) | -€236,46 | |
+<strong>Čisté dividendy</strong> | <strong>€3 141,58</strong> | | | | |
+<strong>Celkový súhrn (ročne)</strong> | | | Ročné čisté mzdy | €17
+774,28 | | Ročné čisté dividendy | €37 699,00 | | <strong>Celkový čistý
+ročný príjem</strong> | <strong>€55 473,28</strong> | | Zisk firmy bez
+miezd | €84 000,00 | | <strong>Reálne celkové daňové zaťaženie</strong>
+| <strong>33.9%</strong> |</p>
+<h2 id="overenie-výpočtu">Overenie výpočtu</h2>
+<p>Na overenie správnosti výpočtu môžete použiť tento postup:</p>
+<ol type="1">
+<li><p><strong>Skontrolujte odvody zamestnanca:</strong> Musia byť 14.4%
+z hrubej mzdy (9.4% sociálne max €1 575,82 + 5% zdravotné bez
+limitu)</p></li>
+<li><p><strong>Skontrolujte odvody zamestnávateľa:</strong> Musia byť
+36,2% z hrubej mzdy (25,2% sociálne max €4 224,53 + 11% zdravotné bez
+limitu)</p></li>
+<li><p><strong>Skontrolujte daňový základ:</strong> Hrubá mzda - odvody
+zamestnanca</p></li>
+<li><p><strong>Skontrolujte nezdaniteľnú časť:</strong> €497,23 len ak
+je daňový základ ≤ €2 173,59</p></li>
+<li><p><strong>Skontrolujte progresívnu daň:</strong> Počíta sa ročne a
+delí 12</p></li>
+<li><p><strong>Skontrolujte sadzbu dane z príjmu PO:</strong> Závisí od
+ročného obratu (príjem × 12), nie od zisku</p></li>
+<li><p><strong>Skontrolujte daň z dividend:</strong> 7% zo zisku po
+zdanení dane z príjmu PO</p></li>
+</ol>
+<h2 id="poznámky">Poznámky</h2>
+<ul>
+<li>Všetky hodnoty sú zaokrúhlené na 2 desatinné miesta (centy)</li>
+<li>Výpočty sú založené na slovenskom daňovom zákone platnom pre rok
+2026</li>
+<li>Táto kalkulačka je len informatívna a nenahradí profesionálnu daňovú
+poradňu</li>
+<li>Pre presné výpočty a podanie daňových priznaní konzultujte daňového
+poradcu alebo účtovníka</li>
+</ul>
+<h2 id="legislatívne-odkazy">Legislatívne odkazy</h2>
+<ul>
+<li>Zákon č. 595/2003 Z. z. o dani z príjmov (Daň z príjmu fyzických
+osôb - progresívne pásma)</li>
+<li>Zákon č. 595/2003 Z. z. o dani z príjmov (Daň z príjmu právnickej
+osoby)</li>
+<li>Zákon č. 461/2003 Z. z. o sociálnom poistení (Odvody sociálneho
+poistenia)</li>
+<li>Zákon č. 580/2004 Z. z. o zdravotnom poistení (Odvody zdravotného
+poistenia)</li>
+</ul>
